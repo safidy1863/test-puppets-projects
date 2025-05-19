@@ -17,6 +17,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            git config --global --add safe.directory /var/www/html/test-puppets-projects
             cd /var/www/html/test-puppets-projects
             git pull origin main
             sudo puppet apply /opt/puppet/test_puppet.pp
